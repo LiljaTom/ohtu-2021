@@ -28,7 +28,10 @@ public class Ostoskori {
     public int hinta() {
         // kertoo korissa olevien tuotteiden yhteenlasketun hinnan
         int hinta = 0;
- 
+
+        for(int i = 0; i < ostokset.size(); i++) {
+            hinta += ostokset.get(i).hinta();
+        }   
         return hinta;
     }
  

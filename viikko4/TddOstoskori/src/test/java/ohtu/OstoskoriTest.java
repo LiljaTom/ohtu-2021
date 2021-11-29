@@ -8,10 +8,13 @@ import static org.junit.Assert.*;
 public class OstoskoriTest {
 
     Ostoskori kori;
+    Tuote maito;
+
 
     @Before
     public void setUp() {
         kori = new Ostoskori();
+        maito = new Tuote("maito", 3);
     }
 
     // step 1
@@ -24,12 +27,17 @@ public class OstoskoriTest {
 
     // step 2
     @Test
-    public void yhdenTuotteenLisaamisenJalkeenKorissaYksiTuote() {
-        Tuote maito = new Tuote("maito", 3);
- 
+    public void yhdenTuotteenLisaamisenJalkeenKorissaYksiTuote() { 
         kori.lisaaTuote(maito);
 
         assertEquals(1, kori.tavaroitaKorissa());
+    }
+
+    @Test
+    public void yhdenTuotteenLisaaminenKasvattaaOstoskorinHintaa() {
+        kori.lisaaTuote(maito);
+
+        assertEquals(3, kori.hinta());
     }
 
 }

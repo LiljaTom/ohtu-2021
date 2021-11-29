@@ -144,4 +144,14 @@ public class OstoskoriTest {
         assertEquals(0, kori.hinta());
         assertEquals(0, kori.ostokset().size());
     }
+
+    @Test
+    public void tyhjennysTyhjentaaOstokset() {
+        kori.lisaaTuote(maito);
+        kori.lisaaTuote(maito);
+
+        kori.tyhjenna();
+
+        assertEquals(0, kori.ostokset().size());
+    }
 }

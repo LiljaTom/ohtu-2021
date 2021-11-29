@@ -52,7 +52,12 @@ public class Ostoskori {
     }
  
     public void poista(Tuote poistettava) {
-        // poistaa tuotteen
+        for(int i = 0; i < ostokset.size(); i++) {
+            if(ostokset.get(i).tuotteenNimi().equals(poistettava.getNimi())) {
+                ostokset.get(i).muutaLukumaaraa(-1);
+                break;
+            }
+        }
     }
  
     public List<Ostos> ostokset() {

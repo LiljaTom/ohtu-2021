@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Ostoskori {
 
-    private ArrayList<Ostos> ostokset;
+    private List<Ostos> ostokset;
 
     public Ostoskori() {
         this.ostokset = new ArrayList<>();
@@ -17,7 +17,10 @@ public class Ostoskori {
         //   tulee metodin palauttaa 2 
         // jos korissa on 1 kpl tuotetta "maito" ja 1 kpl tuotetta "juusto", 
         //   tulee metodin palauttaa 2
-        int tavaroita = 0;   
+        int tavaroita = 0;
+        for(int i = 0; i < ostokset.size(); i++) {
+            tavaroita += ostokset.get(i).lukumaara();
+        }   
 
         return tavaroita;
     }
@@ -31,6 +34,8 @@ public class Ostoskori {
  
     public void lisaaTuote(Tuote lisattava) {
         // lisää tuotteen
+        Ostos ostos = new Ostos(lisattava);
+        ostokset.add(ostos);
     }
  
     public void poista(Tuote poistettava) {

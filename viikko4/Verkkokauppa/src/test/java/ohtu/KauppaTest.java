@@ -1,4 +1,4 @@
-package test.java.ohtu;
+package ohtu;
 
 import ohtu.verkkokauppa.*;
 

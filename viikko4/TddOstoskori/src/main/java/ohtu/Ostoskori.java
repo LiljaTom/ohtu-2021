@@ -37,8 +37,18 @@ public class Ostoskori {
  
     public void lisaaTuote(Tuote lisattava) {
         // lisää tuotteen
-        Ostos ostos = new Ostos(lisattava);
-        ostokset.add(ostos);
+        boolean found = false;
+        for(int i = 0; i < ostokset.size(); i++) {
+            if(ostokset.get(i).tuotteenNimi().equals(lisattava.getNimi())) {
+                ostokset.get(i).muutaLukumaaraa(1);
+                found = true;
+            }
+        }
+
+        if(!found) {
+            Ostos ostos = new Ostos(lisattava);
+            ostokset.add(ostos);
+        }
     }
  
     public void poista(Tuote poistettava) {

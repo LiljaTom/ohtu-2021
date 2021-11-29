@@ -93,5 +93,25 @@ public class OstoskoriTest {
         // testaa täällä, että palautetun listan ensimmäinen ostos on halutunkaltainen.
         assertEquals("maito", ostos.tuotteenNimi());
         assertEquals(1, ostos.lukumaara());
-    } 
+    }
+    
+    @Test
+    public void kahdenEriTuotteenLisaaminenLisaaKoriinKaksiOstosta() {
+        kori.lisaaTuote(maito);
+        kori.lisaaTuote(new Tuote("mehu", 5));
+ 
+        List<Ostos> ostokset = kori.ostokset();
+ 
+        assertEquals(2, ostokset.size());
+    }
+
+    @Test
+    public void kahdenSamanTuotteenLisaamisenJalkeenKorissaOnYksiOstos() {
+        kori.lisaaTuote(maito);
+        kori.lisaaTuote(maito);
+
+        List<Ostos> ostokset = kori.ostokset();
+ 
+        assertEquals(1, ostokset.size());
+    }
 }
